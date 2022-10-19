@@ -1,0 +1,26 @@
+{% extends 'AppGl/padre.html' %}
+
+{% block titulo %}
+Añadir recetas
+{% endblock %}
+
+{% block descripcion %}
+<h1>Aqui puede añadir recetas.</h1>
+{% endblock %}
+
+{% block cuerpo %}
+
+<form action="" enctype="multipart/form-data" method="POST">  {% csrf_token %}
+
+    <table>
+
+        {{form.as_table}}
+
+    </table>
+
+    <input type="submit" value="Enviar">
+
+
+</form>
+
+{% endblock %}

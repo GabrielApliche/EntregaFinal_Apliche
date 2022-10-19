@@ -1,0 +1,34 @@
+{% extends 'AppGl/padre.html' %}
+
+{% block titulo %}
+    <title>Resultados búsqueda</title>
+{% endblock %}
+
+{% block descripcion %}
+    <h1>Buscando receta de: {{nombre}}</h1>
+{% endblock %}
+
+{% block cuerpo %}
+
+{% if recetas %}
+
+{% for r in recetas %}
+
+<h4>
+    <p><img src="{{r.imagen.url}}" alt="No hay imagen."></p>
+    <p>Receta: {{r.nombre}}</p>
+    <p>Ingredientes: {{r.ingredientes}}</p>
+    <p>Tiempo: {{r.tiempo}}</p>
+    <p>Preparacion: <br/>{{r.preparacion}}<br/></p>
+
+    <p>--------------------------------------------------------</p>
+</h4>
+{% endfor %}
+
+{% else %}
+
+<p>No hay receta</p>
+
+{% endif %}
+
+{% endblock %}

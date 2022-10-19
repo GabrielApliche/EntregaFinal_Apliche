@@ -1,0 +1,34 @@
+{% extends 'AppGl/padre.html' %}
+
+{% block titulo %}
+Recetas
+{% endblock %}
+
+{% block descripcion %}
+    <h1>En esta sección puedes encontrar todas las recetas.</h1>
+{% endblock %}
+
+{% block cuerpo %}
+
+<a href="{% url 'FormularioReceta' %}">Añadir una receta.</a>
+
+{% for e in resultados %}
+<h4>
+    <img src="{{e.imagen.url}}" alt="No hay imagen.">
+    <p>Receta:{{e.nombre}}</p>
+    <p>Tiempo de preparacion: {{e.tiempo}}'</p>
+    <p>Ingredientes: {{e.ingredientes}}</p>
+    <p>Preparacion: <br/>{{e.preparacion}}<br/></p>
+
+    <button>
+        <a href="{% url 'Editar Receta' e.nombre %}">Editar Receta.</a>
+    </button>
+    <button>
+        <a href="{% url 'Borrar Receta' e.nombre %}">Eliminar Receta.</a>
+    </button>
+
+    <p>--------------------------------------------------------</p>
+</h4>
+{% endfor %}
+
+{% endblock %}

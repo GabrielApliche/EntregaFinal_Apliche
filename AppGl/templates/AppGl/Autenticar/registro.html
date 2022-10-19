@@ -1,0 +1,18 @@
+{% extends 'AppGl/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+Regristro
+{% endblock %}
+
+{% block descripcion %}
+
+<form action="" method="POST"> {% csrf_token %}
+
+    {{form.as_p}}
+
+    <button type="submit">Registrate</button>
+
+</form>
+{% endblock %}
